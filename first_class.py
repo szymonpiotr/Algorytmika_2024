@@ -63,16 +63,78 @@ def maxx(lista):
             
 # 3a. Zdefiniuj funkcję odwracającą kolejność elementów w liście - wersja rekurencyjna.
 
+def reverse_rec(list):
+    if len(list) == 0:
+        return []
+    else:
+        return reverse_rec(list[1:]) + [list[0]]
+
+# reverse_rec([1,2,3])    = reverse_rec([2,3])  + [1]
+#                        = (reverse_rec([3]) + [2]) + [1]
+#                        = ((reverse_rec([]) + [3]) + [2]) + [1]
+#                        = [] + [3] + [2] + [1]
+#                        = [3,2,1]
+
 # 3b. Zdefiniuj funkcję odwracającą kolejność elementów w liście - wersja iteracyjna.
 
+def reverse_iter(list):
+    start = []
+    for i in list:
+        start = [i] + start 
+    return start
+     
 # 4a. Zdefiniuj funkcję, która konkatenuje dwie listy - wersja rekurencyjna.
+
+ def concaten(list1, list2):
+    if len(list1) == 0:
+        return list2
+    else:
+        return [list1[0]] + concaten(list1[1:], list2)
 
 # 4b. Zdefiniuj funkcję, która konkatenuje dwie listy - wersja iteracyjna.
 
+def concaten_iter(list1, list2):
+    if len(list2) == 0:
+        return list1
+    else:
+        total = list1
+        for i in list2:
+           total = total + [i]
+        return total     
+
 # 5a. Zdefiniuj funkcję, która wylicza największy wspólny dzielnik dwóch liczb - wersja rekurencyjna.
 
+def gcd(a, b):
+    if a == 0:
+        return b
+    else:
+        return gcd(b % a, a)     
+
 # 5b. Zdefiniuj funkcję, która wylicza największy wspólny dzielnik dwóch liczb - wersja iteracyjna.
+
+def gcd_iter(a, b):
+    while a != b:
+        if a > b:
+            a = a - b
+        else:
+            b = b - a
+    return a     
  
 # 6a. Zdefinuj funkcję, która sprawdza, czy dany element znajduje się na liście - wersja rekurencyjna.
 
+def check_list(elem, list):
+    if len(list)==0:
+        return False
+    else:
+        if elem == list[0]:
+            return True
+        else:
+            return check_list(elem,list[1:]) 
+
 # 6b. Zdefinuj funkcję, która sprawdza, czy dany element znajduje się na liście - wersja iteracyjna.
+
+def check_iter(elem, list):
+      for i in list:
+           if i == elem:
+                return True
+      return False  
