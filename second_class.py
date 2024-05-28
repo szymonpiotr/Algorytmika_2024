@@ -2,16 +2,6 @@
 
 # 1a. Zdefinuj funkcję, która sortuje listę liczb - użyj rekurencji. Jeśli jest to potrzebne
 # zdefiniuj funkcje pomocnicze. 
-
-def recurSortt(list):
-    if list == []:
-        return []
-    else:
-        pivot = list[0]
-        smaller = [i for i in list[1:] if i < pivot]
-        larger = [i for i in list[1:] if i >= pivot]
-        return recurSortt(smaller) + [pivot]  + recurSortt(larger) 
-
 # 1b. Zdefinuj funkcję, które sortuje listę liczb - użyj iteracji.
 
 # 2a. Zdefiniuj funkcję, która wstawi daną liczbę w odpowiednie miejsce posortowanej listy - użyj rekurencji.
