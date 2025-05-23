@@ -83,9 +83,23 @@ def maxx(lista):
                   return maxx(reszta)  
 
 # 3a. Zdefiniuj funkcję odwracającą kolejność elementów w liście - wersja rekurencyjna.
+def reverse_rec(list):
+    if len(list) == 0:
+        return []
+    else:
+        return reverse_rec(list[1:]) + [list[0]]
 
+# reverse_rec([1,2,3])    = reverse_rec([2,3])  + [1]
+#                        = (reverse_rec([3]) + [2]) + [1]
+#                        = ((reverse_rec([]) + [3]) + [2]) + [1]
+#                        = [] + [3] + [2] + [1]
+#                        = [3,2,1]
 # 3b. Zdefiniuj funkcję odwracającą kolejność elementów w liście - wersja iteracyjna.
-
+def reverse_iter(list):
+    start = []
+    for i in list:
+        start = [i] + start 
+    return start
      
 # 4a. Zdefiniuj funkcję, która konkatenuje dwie listy - wersja rekurencyjna.
 
