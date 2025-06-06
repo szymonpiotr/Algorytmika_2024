@@ -15,3 +15,11 @@ root.right.left = Node(6)
 root.right.right = Node(7)
 root.right.right.left = Node(10)
 root.right.right.right = Node(11)
+
+def is_element(root, element):
+   if root.left == None and root.right == None:
+      return element == root.data
+   else:
+      return (is_element(root.left, element) or is_element(root.right, element)) or root.data == element
+
+print(is_element(root, 1))
