@@ -23,3 +23,11 @@ def is_element(root, element):
       return (is_element(root.left, element) or is_element(root.right, element)) or root.data == element
 
 print(is_element(root, 1))
+
+#1. Zdefniuj funkcję, która dla danego drzewa zwróci ilość węzłów. 
+
+def how_many(root):
+   if root.left == None and root.right == None:
+      return 1 
+   else:
+      return how_many(root.left) + how_many(root.right) + 1 
