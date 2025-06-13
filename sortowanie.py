@@ -24,14 +24,35 @@ def iterSort(list):
 
 
 # 2a. Zdefiniuj funkcję, która wstawi daną liczbę w odpowiednie miejsce posortowanej listy - użyj rekurencji.
-            
-# 2b. Zdefiniuj funkcję, która wstawi daną liczbę w odpowiednie miejsce posortowanej listy - użyj iteracji. 
-
+def insertRec(elem,list):
+    if list == []:
+        return [elem]
+    else: 
+        if elem <= list[0]:
+            return [elem] + list
+        else:
+            return [list[0]] + insertRec(elem,list[1:])            
 
 # 3a. Zdefiniuj funkcję, która sprawdzi ile razy dany element występuje na danej liście - użyj rekurencji.
+def howMany(elem,list):
+    if list == []:
+        return 0
+    else:
+        if elem == list[0]:
+            return 1 + howMany(elem,list[1:])
+        else:
+            return howMany(elem,list[1:])
             
 # 3b. Zdefiniuj funkcję, która sprawdzi ile razy dany element występuje na danej liście - użyj iteracji.
-
+def howManyIter(elem,list):
+    if list == []:
+        return 0
+    else:
+        counter = 0
+        for i in list:
+            if elem == i:
+                counter += 1
+        return counter 
 
 # 4. Trójkąt Pacala. Zdefinuj funkcję, która dostaje dwa argumenty: numer kolumny i numer wiersza, zwraca zaś 
 # liczbą Pascala która na danej współrzędnej występuje.
@@ -46,5 +67,15 @@ def pascal(wiersz, kolumna):
 # 5. Zdefiniuj funkcję "balance", która sprawdza, czy w danym Stringu nawiasy są ustawione w 
 # prawidłowy sposób, tj. czy każde lewy nawias ma swój prawy nawias do pary i czy są one dobrze ustawione.
 
-
+def balanced(string, open): 
+    if (string == ""):
+        return open == 0
+    else:
+        if (string[0] == '('): 
+            return balanced(string[1:], open + 1)
+        else:
+            if (string[0] == ')'): 
+                return open > 0 and balanced(string[1:], open - 1)
+            else:
+                return balanced(string[1:], open)
 
