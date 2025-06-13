@@ -102,15 +102,49 @@ def reverse_iter(list):
     return start
      
 # 4a. Zdefiniuj funkcję, która konkatenuje dwie listy - wersja rekurencyjna.
-
+def concaten(list1, list2):
+    if len(list1) == 0:
+        return list2
+    else:
+        return [list1[0]] + concaten(list1[1:], list2)
 # 4b. Zdefiniuj funkcję, która konkatenuje dwie listy - wersja iteracyjna.
-
+def concaten_iter(list1, list2):
+    if len(list2) == 0:
+        return list1
+    else:
+        total = list1
+        for i in list2:
+           total = total + [i]
+        return total  
  
 # 5a. Zdefinuj funkcję, która sprawdza, czy dany element znajduje się na liście - wersja rekurencyjna.
 
+def check_list(elem, list):
+    if len(list)==0:
+        return False
+    else:
+        if elem == list[0]:
+            return True
+        else:
+            return check_list(elem,list[1:]) 
 # 5b. Zdefinuj funkcję, która sprawdza, czy dany element znajduje się na liście - wersja iteracyjna.
-
+def check_iter(elem, list):
+      for i in list:
+           if i == elem:
+                return True
+      return False  
    
 # 6a. Zdefiniuj funkcję, która wylicza największy wspólny dzielnik dwóch liczb - wersja rekurencyjna.
-
+def gcd(a, b):
+    if a == 0:
+        return b
+    else:
+        return gcd(b % a, a)  
 # 6b. Zdefiniuj funkcję, która wylicza największy wspólny dzielnik dwóch liczb - wersja iteracyjna.
+def gcd_iter(a, b):
+    while a != b:
+        if a > b:
+            a = a - b
+        else:
+            b = b - a
+    return a   
